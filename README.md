@@ -9,10 +9,10 @@ This application exposes only one REST endpoint with the __/superheroes__ suffix
 
 This endpoint can accept up to two query parameters named __encryptedIdentities__ and __superpowers__.
 
- __encryptedIdentities__ : A query parameter of type boolean used to define whether the identities of the retrieved superheroes should be encrypted.
+ __encryptedIdentities__ : a query parameter of type boolean used to define whether the identities of the retrieved superheroes should be encrypted.
  
-__superpowers__ : A query parameter of type EnumSet used to define the superpowers that the retrieved superheroes should have. All possible superpower values can be found in __com.example.deeseecomics.api.dto.Superpower__.
+__superpowers__ : a query parameter of type EnumSet used to define the superpowers that the retrieved superheroes should have. All possible superpower values can be found in __com.example.deeseecomics.api.dto.Superpower__.
 
-Here is a valid URL that can be used to retrieve all superheroes with the flight superpower in encrypted mode:
+Here is an example of valid URL that can be used to retrieve all identity-encrypted superheroes that have flight and strength superpowers:
 
-__APPLICATION_HOST:8080/superheroes?encryptedIdentities=true&superpowers=flight__
+__APPLICATION_HOST:8080/superheroes?encryptedIdentities=true&superpowers=flight,strength__
