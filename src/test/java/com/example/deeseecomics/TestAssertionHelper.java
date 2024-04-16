@@ -29,10 +29,9 @@ public class TestAssertionHelper {
     }
 
     public static void assertSuperheroDto(Superhero superhero, String name, LocalDate birthDay, EnumSet<Superpower> superpowers, String identity) {
-
-        assertEquals(name, superhero.getName());
-        assertEquals(birthDay, superhero.getBirthday());
-        assertEquals(superpowers, superhero.getSuperpowers());
-        assertEquals(identity, superhero.getIdentity());
+        assertEquals(name, superhero.name());
+        assertEquals(birthDay, superhero.birthday());
+        assertEquals(superpowers, superhero.superpowers());
+        assertEquals(identity, superhero.identity());
     }
 }

@@ -16,16 +16,14 @@ public class DomainModelsToDtoMapper {
 
     public static Superhero mapDomainSuperheroToDto(
             com.example.deeseecomics.domain.model.Superhero superhero){
-        var superheroDto = new Superhero();
-        superheroDto.setName(superhero.getName());
-        superheroDto.setBirthday(superhero.getBirthday());
-        superheroDto.setSuperpowers(mapDomainSuperpowersToDtos(superhero.getSuperpowers()));
         String firstName = superhero.getIdentity().getFirstName();
         String lastName = superhero.getIdentity().getLastName();
-        superheroDto.setIdentity("$%s$%s".formatted(firstName, lastName));
 
-        return superheroDto;
-    }
+        return new Superhero(superhero.getName(),
+                "$%s$%s".formatted(firstName, lastName),
+                mapDomainSuperpowersToDtos(superhero.getSuperpowers()),
+                superhero.getBirthday());
+     }
 
     public static EnumSet<Superpower> mapDomainSuperpowersToDtos(
             EnumSet<com.example.deeseecomics.domain.model.Superpower> superpowers){
