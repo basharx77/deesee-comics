@@ -1,4 +1,4 @@
-package com.example.deeseecomics.converter;
+package com.example.deeseecomics.domain.converter;
 
 import com.example.deeseecomics.domain.model.Superpower;
 import org.junit.jupiter.api.Test;

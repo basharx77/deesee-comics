@@ -1,6 +1,6 @@
 package com.example.deeseecomics.controller;
 
-import com.example.deeseecomics.api.dto.Superhero;
+import com.example.deeseecomics.api.dto.SuperheroDTO;
 import com.example.deeseecomics.domain.model.Superpower;
 import com.example.deeseecomics.service.SuperheroService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ class SuperheroesController {
     }
 
     @GetMapping
-    public List<Superhero> getSuperHeroes(
+    public List<SuperheroDTO> getSuperHeroes(
             @RequestParam(required = false, defaultValue = "") EnumSet<Superpower> superpowers,
             @RequestParam(required = false, defaultValue = "false") Boolean encryptedIdentities) {
 

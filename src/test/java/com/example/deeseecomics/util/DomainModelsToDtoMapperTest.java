@@ -1,6 +1,7 @@
 package com.example.deeseecomics.util;
 
 import com.example.deeseecomics.TestDataSupport;
+import com.example.deeseecomics.api.dto.SuperpowerDTO;
 import com.example.deeseecomics.domain.model.Superpower;
 import org.junit.jupiter.api.Test;
 
@@ -50,13 +51,13 @@ class DomainModelsToDtoMapperTest extends TestDataSupport {
     @Test
     public void shouldMapDomainSuperpowerToDto() {
         assertEquals(DomainModelsToDtoMapper.mapDomainSuperpowerToDto(Superpower.FLIGHT),
-                com.example.deeseecomics.api.dto.Superpower.FLIGHT);
+                SuperpowerDTO.FLIGHT);
     }
 
     @Test
     public void shouldMapDomainSuperpowersToDtos() {
         var superpowerDtos = DomainModelsToDtoMapper.mapDomainSuperpowersToDtos(EnumSet.allOf(Superpower.class));
-        assertEquals(superpowerDtos, EnumSet.allOf(com.example.deeseecomics.api.dto.Superpower.class));
+        assertEquals(superpowerDtos, EnumSet.allOf(SuperpowerDTO.class));
     }
 
 }

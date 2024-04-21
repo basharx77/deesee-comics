@@ -1,7 +1,7 @@
 package com.example.deeseecomics;
 
-import com.example.deeseecomics.api.dto.Superhero;
-import com.example.deeseecomics.api.dto.Superpower;
+import com.example.deeseecomics.api.dto.SuperheroDTO;
+import com.example.deeseecomics.api.dto.SuperpowerDTO;
 import com.example.deeseecomics.domain.model.Identity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestAssertionHelper {
 
     public static void assertSuperheroes(String response,
-                                         List<Superhero> expectedSuperheroes,
+                                         List<SuperheroDTO> expectedSuperheroDTOS,
                                          ObjectMapper objectMapper) throws JsonProcessingException {
-        List<Superhero> superheroes = objectMapper.readValue(response,
-                objectMapper.getTypeFactory().constructCollectionType(List.class, Superhero.class));
+        List<SuperheroDTO> superheroDTOS = objectMapper.readValue(response,
+                objectMapper.getTypeFactory().constructCollectionType(List.class, SuperheroDTO.class));
 
-        assertEquals(expectedSuperheroes, superheroes);
+        assertEquals(expectedSuperheroDTOS, superheroDTOS);
     }
 
     public static void assertIdentity(Identity identity, String expectedFirstName, String expectedLastName) {
@@ -28,10 +28,10 @@ public class TestAssertionHelper {
         assertEquals(expectedLastName, identity.getLastName());
     }
 
-    public static void assertSuperheroDto(Superhero superhero, String name, LocalDate birthDay, EnumSet<Superpower> superpowers, String identity) {
-        assertEquals(name, superhero.name());
-        assertEquals(birthDay, superhero.birthday());
-        assertEquals(superpowers, superhero.superpowers());
-        assertEquals(identity, superhero.identity());
+    public static void assertSuperheroDto(SuperheroDTO superheroDTO, String name, LocalDate birthDay, EnumSet<SuperpowerDTO> superpowerDTOS, String identity) {
+        assertEquals(name, superheroDTO.name());
+        assertEquals(birthDay, superheroDTO.birthday());
+        assertEquals(superpowerDTOS, superheroDTO.superpowerDTOS());
+        assertEquals(identity, superheroDTO.identity());
     }
 }

@@ -14,9 +14,7 @@ public class MockMvcTestUtils {
                                         MediaType mediaType,
                                         ResultMatcher resultMatcher) throws Exception {
 
-        return mockMvc.perform(mockHttpServletRequestBuilder
-                        .params(params)
-                        .contentType(mediaType))
+        return mockMvc.perform(mockHttpServletRequestBuilder.params(params).contentType(mediaType))
                 .andExpect(resultMatcher)
                 .andReturn()
                 .getResponse()

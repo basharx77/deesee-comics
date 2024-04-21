@@ -1,6 +1,7 @@
 package com.example.deeseecomics.jackson.deserializer;
 
-import com.example.deeseecomics.api.dto.Superpower;
+import com.example.deeseecomics.api.dto.SuperpowerDTO;
+import com.example.deeseecomics.api.jackson.deserializer.SuperpowerDtoDeserializer;
 import com.fasterxml.jackson.core.JsonParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,17 +15,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class SuperpowerDeserializerTest {
+public class SuperpowerDtoDeserializerTest {
 
     @Mock
     private JsonParser jsonParser;
     @InjectMocks
-    private SuperpowerDeserializer superpowerDeserializer;
+    private SuperpowerDtoDeserializer superpowerDTODeserializer;
 
 
     @Test
     void testDeserialize() throws IOException {
-        when(jsonParser.getText()).thenReturn(Superpower.FLIGHT.toString().toLowerCase());
-        assertEquals(Superpower.FLIGHT, superpowerDeserializer.deserialize(jsonParser, null));
+        when(jsonParser.getText()).thenReturn(SuperpowerDTO.FLIGHT.toString().toLowerCase());
+        assertEquals(SuperpowerDTO.FLIGHT, superpowerDTODeserializer.deserialize(jsonParser, null));
     }
 }
