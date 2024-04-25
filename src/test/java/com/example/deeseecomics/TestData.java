@@ -7,24 +7,32 @@ import com.example.deeseecomics.domain.model.Superpower;
 import java.time.LocalDate;
 import java.util.EnumSet;
 
-public class TestDataSupport {
+public class TestData {
 
-    protected final String SUPERPOWER_QUERY_PARAM = "superpowers";
-    protected final String ENCRYPTION_QUERY_PARAM = "encryptedIdentities";
-    protected final String FIRST_TEST_SUPERHERO_NAME = "Superman";
-    protected final String FIRST_TEST_SUPERHERO_FIRST_NAME = "Max";
-    protected final String FIRST_TEST_SUPERHERO_SECOND_NAME = "Mustermann";
-    protected final LocalDate FIRST_TEST_SUPERHERO_BIRTHDAY = LocalDate.of(2000, 1, 1);
-    protected final EnumSet<Superpower> FIRST_TEST_SUPERHERO_SUPERPOWERS = EnumSet.allOf(Superpower.class);
 
-    protected final String SECOND_TEST_SUPERHERO_NAME = "Batman";
-    protected final String SECOND_TEST_SUPERHERO_FIRST_NAME = "John";
-    protected final String SECOND_TEST_SUPERHERO_SECOND_NAME = "Smith";
-    protected final LocalDate SECOND_TEST_SUPERHERO_BIRTHDAY = LocalDate.of(1999, 1, 1);
-    protected final EnumSet<Superpower> SECOND_TEST_SUPERHERO_SUPERPOWERS = EnumSet.of(Superpower.FLIGHT);
+    // Superheroes Controller constants
+    public final static String SUPERHEROES_CONTROLLER_PATH = "/superheroes";
+    public static final String SUPERPOWER_QUERY_PARAM = "superpowers";
+    public static final String ENCRYPTION_QUERY_PARAM = "encryptedIdentities";
 
-    protected final Superhero FIRST_TEST_SUPERHERO = getFirstTestSuperHero();
-    protected final Superhero SECOND_TEST_SUPERHERO = getSecondTestSuperHero();
+
+    // Info of first test superhero
+    public final String FIRST_TEST_SUPERHERO_NAME = "Superman";
+    public final String FIRST_TEST_SUPERHERO_FIRST_NAME = "Max";
+    public final String FIRST_TEST_SUPERHERO_SECOND_NAME = "Mustermann";
+    public final LocalDate FIRST_TEST_SUPERHERO_BIRTHDAY = LocalDate.of(2000, 1, 1);
+    public final EnumSet<Superpower> FIRST_TEST_SUPERHERO_SUPERPOWERS = EnumSet.allOf(Superpower.class);
+
+
+    // Info of Second test superhero
+    public final String SECOND_TEST_SUPERHERO_NAME = "Batman";
+    public final String SECOND_TEST_SUPERHERO_FIRST_NAME = "John";
+    public final String SECOND_TEST_SUPERHERO_SECOND_NAME = "Smith";
+    public final LocalDate SECOND_TEST_SUPERHERO_BIRTHDAY = LocalDate.of(1999, 1, 1);
+    public final EnumSet<Superpower> SECOND_TEST_SUPERHERO_SUPERPOWERS = EnumSet.of(Superpower.FLIGHT);
+
+    public final Superhero FIRST_TEST_SUPERHERO = getFirstTestSuperHero();
+    public final Superhero SECOND_TEST_SUPERHERO = getSecondTestSuperHero();
 
     private Superhero getFirstTestSuperHero() {
         Superhero superhero = new Superhero();

@@ -1,6 +1,6 @@
 package com.example.deeseecomics.util;
 
-import com.example.deeseecomics.TestDataSupport;
+import com.example.deeseecomics.TestData;
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
 import com.example.deeseecomics.domain.model.Superpower;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ import java.util.List;
 import static com.example.deeseecomics.TestAssertionHelper.assertSuperheroDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DomainModelsToDtoMapperTest extends TestDataSupport {
+class DomainModelsToDtoMapperTest extends TestData {
 
 
     @Test

@@ -1,6 +1,6 @@
 package com.example.deeseecomics.data.loader;
 
-import com.example.deeseecomics.TestDataSupport;
+import com.example.deeseecomics.TestData;
 import com.example.deeseecomics.domain.model.Superhero;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class SuperheroDataLoaderTest extends TestDataSupport {
+class SuperheroDataLoaderTest {
 
     @Spy
     private Resource resource = new ClassPathResource("testdata/superheroes.json");

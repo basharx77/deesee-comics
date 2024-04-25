@@ -15,16 +15,16 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.deeseecomics.TestData.*;
 import static com.example.deeseecomics.util.DomainModelsToDtoMapper.mapDomainSuperheroToDto;
 import static com.example.deeseecomics.util.DomainModelsToDtoMapper.mapDomainSuperheroesToDtos;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-class DeeseeComicsApplicationIntegrationTest extends TestDataSupport {
+class DeeseeComicsApplicationIntegrationTest {
 
-    private final static String SUPERHEROES_CONTROLLER_PATH = "/superheroes";
-
+    private final TestData testData = new TestData();
     @Autowired
     private TestRestTemplate testRestTemplate;
     @Autowired

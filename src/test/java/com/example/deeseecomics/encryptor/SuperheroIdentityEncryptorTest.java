@@ -1,6 +1,6 @@
 package com.example.deeseecomics.encryptor;
 
-import com.example.deeseecomics.TestDataSupport;
+import com.example.deeseecomics.TestData;
 import com.example.deeseecomics.domain.model.Identity;
 import com.example.deeseecomics.domain.model.Superhero;
 import com.example.deeseecomics.encryptor.string.StringEncryptor;
@@ -16,9 +16,10 @@ import static com.example.deeseecomics.TestAssertionHelper.assertIdentity;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class SuperheroIdentityEncryptorTest extends TestDataSupport {
+public class SuperheroIdentityEncryptorTest {
 
     private final static String TEST_ENCRYPTED_FORM = "ENCRYPTED_%s";
+    private final TestData testData = new TestData();
 
     @Mock
     private StringEncryptor stringEncryptor;
@@ -28,16 +29,16 @@ public class SuperheroIdentityEncryptorTest extends TestDataSupport {
 
     @Test
     void shouldReturn_SuperheroesWithEncryptedIdentities() {
-        prepareStubbing(FIRST_TEST_SUPERHERO_FIRST_NAME, FIRST_TEST_SUPERHERO_SECOND_NAME);
-        prepareStubbing(SECOND_TEST_SUPERHERO_FIRST_NAME, SECOND_TEST_SUPERHERO_SECOND_NAME);
+        prepareStubbing(testData.FIRST_TEST_SUPERHERO_FIRST_NAME, testData.FIRST_TEST_SUPERHERO_SECOND_NAME);
+        prepareStubbing(testData.SECOND_TEST_SUPERHERO_FIRST_NAME, testData.SECOND_TEST_SUPERHERO_SECOND_NAME);
 
         List<Superhero> encryptedSuperheroes = superheroIdentityEncryptor.createNewSuperheroesWithEncryptedIdentities(
-                List.of(FIRST_TEST_SUPERHERO, SECOND_TEST_SUPERHERO));
+                List.of(testData.FIRST_TEST_SUPERHERO, testData.SECOND_TEST_SUPERHERO));
 
         assertEncryptedIdentity(encryptedSuperheroes.get(0).getIdentity(),
-                FIRST_TEST_SUPERHERO_FIRST_NAME, FIRST_TEST_SUPERHERO_SECOND_NAME);
+                testData.FIRST_TEST_SUPERHERO_FIRST_NAME, testData.FIRST_TEST_SUPERHERO_SECOND_NAME);
         assertEncryptedIdentity(encryptedSuperheroes.get(1).getIdentity()
-                , SECOND_TEST_SUPERHERO_FIRST_NAME, SECOND_TEST_SUPERHERO_SECOND_NAME);
+                , testData.SECOND_TEST_SUPERHERO_FIRST_NAME, testData.SECOND_TEST_SUPERHERO_SECOND_NAME);
     }
 
     private void prepareStubbing(String firstName, String secondName) {
