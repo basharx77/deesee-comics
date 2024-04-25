@@ -31,7 +31,7 @@ public class TestAssertionHelper {
     public static void assertSuperheroDto(SuperheroDTO superheroDTO, String name, LocalDate birthDay, EnumSet<SuperpowerDTO> superpowerDTOS, String identity) {
         assertEquals(name, superheroDTO.name());
         assertEquals(birthDay, superheroDTO.birthday());
-        assertEquals(superpowerDTOS, superheroDTO.superpowerDTOS());
+        assertEquals(superpowerDTOS, superheroDTO.superpowers());
         assertEquals(identity, superheroDTO.identity());
     }
 }

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
 import java.util.EnumSet;
 
-public record SuperheroDTO(String name, String identity, EnumSet<SuperpowerDTO> superpowerDTOS,
+public record SuperheroDTO(String name, String identity, EnumSet<SuperpowerDTO> superpowers,
                            @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
                            LocalDate birthday) {
 }
