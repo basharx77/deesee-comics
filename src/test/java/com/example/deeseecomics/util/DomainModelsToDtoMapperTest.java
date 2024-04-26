@@ -11,41 +11,42 @@ import java.util.List;
 import static com.example.deeseecomics.TestAssertionHelper.assertSuperheroDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DomainModelsToDtoMapperTest extends TestData {
+class DomainModelsToDtoMapperTest {
 
+    private final TestData testData = new TestData();
 
     @Test
     public void shouldMapDomainSuperheroToDto() {
-        var superhero = DomainModelsToDtoMapper.mapDomainSuperheroToDto(FIRST_TEST_SUPERHERO);
+        var superhero = DomainModelsToDtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO);
 
         assertSuperheroDto(superhero,
-                FIRST_TEST_SUPERHERO_NAME,
-                FIRST_TEST_SUPERHERO_BIRTHDAY,
-                DomainModelsToDtoMapper.mapDomainSuperpowersToDtos(FIRST_TEST_SUPERHERO_SUPERPOWERS),
-                "$%s$%s".formatted(FIRST_TEST_SUPERHERO_FIRST_NAME,
-                        FIRST_TEST_SUPERHERO_SECOND_NAME));
+                testData.FIRST_TEST_SUPERHERO_NAME,
+                testData.FIRST_TEST_SUPERHERO_BIRTHDAY,
+                DomainModelsToDtoMapper.mapDomainSuperpowersToDtos(testData.FIRST_TEST_SUPERHERO_SUPERPOWERS),
+                "$%s$%s".formatted(testData.FIRST_TEST_SUPERHERO_FIRST_NAME,
+                        testData.FIRST_TEST_SUPERHERO_SECOND_NAME));
     }
 
     @Test
     public void shouldMapDomainSuperheroesToDtos() {
-        var superheroes = DomainModelsToDtoMapper.mapDomainSuperheroesToDtos(List.of(FIRST_TEST_SUPERHERO,
-                SECOND_TEST_SUPERHERO));
+        var superheroes = DomainModelsToDtoMapper.mapDomainSuperheroesToDtos(List.of(
+                testData.FIRST_TEST_SUPERHERO,
+                testData.SECOND_TEST_SUPERHERO));
 
 
         assertSuperheroDto(superheroes.get(0),
-                FIRST_TEST_SUPERHERO_NAME,
-                FIRST_TEST_SUPERHERO_BIRTHDAY,
-                DomainModelsToDtoMapper.mapDomainSuperpowersToDtos(FIRST_TEST_SUPERHERO_SUPERPOWERS),
-                "$%s$%s".formatted(FIRST_TEST_SUPERHERO_FIRST_NAME,
-                        FIRST_TEST_SUPERHERO_SECOND_NAME));
+                testData.FIRST_TEST_SUPERHERO_NAME,
+                testData.FIRST_TEST_SUPERHERO_BIRTHDAY,
+                DomainModelsToDtoMapper.mapDomainSuperpowersToDtos(testData.FIRST_TEST_SUPERHERO_SUPERPOWERS),
+                "$%s$%s".formatted(testData.FIRST_TEST_SUPERHERO_FIRST_NAME,
+                        testData.FIRST_TEST_SUPERHERO_SECOND_NAME));
 
         assertSuperheroDto(superheroes.get(1),
-                SECOND_TEST_SUPERHERO_NAME,
-                SECOND_TEST_SUPERHERO_BIRTHDAY,
-                DomainModelsToDtoMapper.mapDomainSuperpowersToDtos(SECOND_TEST_SUPERHERO_SUPERPOWERS),
-                "$%s$%s".formatted(SECOND_TEST_SUPERHERO_FIRST_NAME,
-                        SECOND_TEST_SUPERHERO_SECOND_NAME));
-
+                testData.SECOND_TEST_SUPERHERO_NAME,
+                testData.SECOND_TEST_SUPERHERO_BIRTHDAY,
+                DomainModelsToDtoMapper.mapDomainSuperpowersToDtos(testData.SECOND_TEST_SUPERHERO_SUPERPOWERS),
+                "$%s$%s".formatted(testData.SECOND_TEST_SUPERHERO_FIRST_NAME,
+                        testData.SECOND_TEST_SUPERHERO_SECOND_NAME));
     }
 
     @Test

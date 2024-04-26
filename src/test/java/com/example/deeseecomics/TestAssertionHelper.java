@@ -14,8 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestAssertionHelper {
 
-    public static void assertSuperheroes(String response,
-                                         List<SuperheroDTO> expectedSuperheroDTOS,
+    public static void assertSuperheroes(String response, List<SuperheroDTO> expectedSuperheroDTOS,
                                          ObjectMapper objectMapper) throws JsonProcessingException {
         List<SuperheroDTO> superheroDTOS = objectMapper.readValue(response,
                 objectMapper.getTypeFactory().constructCollectionType(List.class, SuperheroDTO.class));
@@ -28,7 +27,8 @@ public class TestAssertionHelper {
         assertEquals(expectedLastName, identity.getLastName());
     }
 
-    public static void assertSuperheroDto(SuperheroDTO superheroDTO, String name, LocalDate birthDay, EnumSet<SuperpowerDTO> superpowerDTOS, String identity) {
+    public static void assertSuperheroDto(SuperheroDTO superheroDTO, String name, LocalDate birthDay,
+                                          EnumSet<SuperpowerDTO> superpowerDTOS, String identity) {
         assertEquals(name, superheroDTO.name());
         assertEquals(birthDay, superheroDTO.birthday());
         assertEquals(superpowerDTOS, superheroDTO.superpowers());
