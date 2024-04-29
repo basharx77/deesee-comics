@@ -1,4 +1,4 @@
-package com.example.deeseecomics.jackson.deserializer;
+package com.example.deeseecomics.api.jackson.deserializer;
 
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
 import com.example.deeseecomics.api.jackson.deserializer.SuperpowerDtoDeserializer;

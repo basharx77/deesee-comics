@@ -1,4 +1,4 @@
-package com.example.deeseecomics.jackson.serializer;
+package com.example.deeseecomics.api.jackson.serializer;
 
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
 import com.example.deeseecomics.api.jackson.serializer.SuperpowerDtoSerializer;
