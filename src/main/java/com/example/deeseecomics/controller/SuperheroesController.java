@@ -2,7 +2,6 @@ package com.example.deeseecomics.controller;
 
 import com.example.deeseecomics.api.dto.SuperheroDTO;
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
-import com.example.deeseecomics.domain.model.Superpower;
 import com.example.deeseecomics.service.SuperheroService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.EnumSet;
 import java.util.List;
 
-import static com.example.deeseecomics.util.DomainModelsToDtoMapper.*;
+import static com.example.deeseecomics.util.Domain2DtoMapper.mapDomainSuperheroesToDtos;
+import static com.example.deeseecomics.util.Dto2DomainMapper.mapSuperpowersDtoToDomain;
 
 @RestController
 @RequestMapping("/superheroes")
@@ -26,7 +26,7 @@ class SuperheroesController {
 
     @GetMapping
     public List<SuperheroDTO> getSuperHeroes(
-            @RequestParam(name = "superpowers",required = false, defaultValue = "") EnumSet<SuperpowerDTO> superpowersDto,
+            @RequestParam(name = "superpowers", required = false, defaultValue = "") EnumSet<SuperpowerDTO> superpowersDto,
             @RequestParam(required = false, defaultValue = "false") Boolean encryptedIdentities) {
 
         return mapDomainSuperheroesToDtos(

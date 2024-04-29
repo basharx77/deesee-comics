@@ -10,17 +10,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.util.EnumSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import static com.example.deeseecomics.TestData.*;
 import static com.example.deeseecomics.WebTestUtils.concatSuperpowers;
 import static com.example.deeseecomics.WebTestUtils.getUrlWithQueryParams;
-import static com.example.deeseecomics.TestData.*;
-import static com.example.deeseecomics.util.DomainModelsToDtoMapper.mapDomainSuperheroToDto;
-import static com.example.deeseecomics.util.DomainModelsToDtoMapper.mapDomainSuperheroesToDtos;
+import static com.example.deeseecomics.util.Domain2DtoMapper.mapDomainSuperheroToDto;
+import static com.example.deeseecomics.util.Domain2DtoMapper.mapDomainSuperheroesToDtos;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -77,7 +74,7 @@ class DeeseeComicsApplicationIntegrationTest {
     private SuperheroDTO[] getSuperHeroes(Boolean ecryptionQueryParamValue, String superpowerQueryParamValue) {
         var ecryptionValue = ecryptionQueryParamValue == null ? null : ecryptionQueryParamValue.toString();
         var urlWithQueriesPrams = getUrlWithQueryParams(testRestTemplate.getRootUri() + SUPERHEROES_CONTROLLER_PATH,
-                ENCRYPTION_QUERY_PARAM, ecryptionValue,SUPERPOWER_QUERY_PARAM, superpowerQueryParamValue);
+                ENCRYPTION_QUERY_PARAM, ecryptionValue, SUPERPOWER_QUERY_PARAM, superpowerQueryParamValue);
 
         return testRestTemplate.getForObject(urlWithQueriesPrams, SuperheroDTO[].class);
     }

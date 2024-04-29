@@ -1,7 +1,6 @@
 package com.example.deeseecomics.api.jackson.deserializer;
 
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
-import com.example.deeseecomics.api.jackson.deserializer.SuperpowerDtoDeserializer;
 import com.fasterxml.jackson.core.JsonParser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

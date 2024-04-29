@@ -26,9 +26,9 @@ public class SuperheroDataLoader {
         this.resource = resource;
     }
 
-    private ObjectMapper getObjectMapper()  {
+    private ObjectMapper getObjectMapper() {
 
-        if(objectMapper!=null){
+        if (objectMapper != null) {
             return objectMapper;
         }
 
@@ -43,17 +43,18 @@ public class SuperheroDataLoader {
         return objectMapper;
     }
 
-    public List<Superhero> loadSuperheroes()  {
+    public List<Superhero> loadSuperheroes() {
         try {
-            return getObjectMapper().readValue(resource.getInputStream(), new TypeReference<>() {});
-         } catch (IOException e) {
+            return getObjectMapper().readValue(resource.getInputStream(), new TypeReference<>() {
+            });
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     private static class SuperpowerDeserializer extends JsonDeserializer<Superpower> {
         @Override
-        public Superpower  deserialize(JsonParser jsonParser, DeserializationContext ctx) throws IOException {
+        public Superpower deserialize(JsonParser jsonParser, DeserializationContext ctx) throws IOException {
             return Superpower.valueOf(jsonParser.getText().toUpperCase());
         }
     }

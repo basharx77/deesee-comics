@@ -1,8 +1,6 @@
 package com.example.deeseecomics.api.converter;
 
-import com.example.deeseecomics.api.converter.StringToSuperpowerConverter;
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
-import com.example.deeseecomics.domain.model.Superpower;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

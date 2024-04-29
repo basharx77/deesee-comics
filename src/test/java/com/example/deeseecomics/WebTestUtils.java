@@ -1,7 +1,6 @@
 package com.example.deeseecomics;
 
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
-import com.example.deeseecomics.domain.model.Superpower;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
@@ -30,19 +29,19 @@ public class WebTestUtils {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(url);
         boolean valueIsMissing = false;
 
-        String queryParamKey = "",queryParamValue;
-        for(String keyOrValue : keysAndValues){
-            if (valueIsMissing){
-                queryParamValue=keyOrValue;
-                uriBuilder.queryParam(queryParamKey,queryParamValue);
-                valueIsMissing=false;
+        String queryParamKey = "", queryParamValue;
+        for (String keyOrValue : keysAndValues) {
+            if (valueIsMissing) {
+                queryParamValue = keyOrValue;
+                uriBuilder.queryParam(queryParamKey, queryParamValue);
+                valueIsMissing = false;
             } else {
-                queryParamKey=keyOrValue;
-                valueIsMissing=true;
+                queryParamKey = keyOrValue;
+                valueIsMissing = true;
             }
         }
 
-        if(valueIsMissing){
+        if (valueIsMissing) {
             throw new RuntimeException("");
         }
 
@@ -55,5 +54,5 @@ public class WebTestUtils {
                 map(superpower -> superpower.toString().toLowerCase()).
                 collect(Collectors.joining(","));
     }
-    
+
 }

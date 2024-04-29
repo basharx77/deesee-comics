@@ -1,11 +1,9 @@
 package com.example.deeseecomics.controller;
 
 import com.example.deeseecomics.TestData;
-import com.example.deeseecomics.api.dto.SuperheroDTO;
-import com.example.deeseecomics.api.dto.SuperpowerDTO;
 import com.example.deeseecomics.domain.model.Superpower;
 import com.example.deeseecomics.service.SuperheroService;
-import com.example.deeseecomics.util.DomainModelsToDtoMapper;
+import com.example.deeseecomics.util.Domain2DtoMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -17,16 +15,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Collections;
 import java.util.EnumSet;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.example.deeseecomics.TestAssertionHelper.assertSuperheroes;
 import static com.example.deeseecomics.TestData.*;
-import static com.example.deeseecomics.WebTestUtils.*;
-import static com.example.deeseecomics.WebTestUtils.concatSuperpowers;
-import static com.example.deeseecomics.util.DomainModelsToDtoMapper.mapDomainSuperheroToDto;
-import static com.example.deeseecomics.util.DomainModelsToDtoMapper.mapDomainSuperheroesToDtos;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.example.deeseecomics.WebTestUtils.getUrlWithQueryParams;
+import static com.example.deeseecomics.WebTestUtils.preformMockMvc;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -59,7 +53,7 @@ public class SuperheroesControllerTest {
         String response = preformMockMvc(mockMvc, get(SUPERHEROES_CONTROLLER_PATH), MediaType.APPLICATION_JSON,
                 status().isOk());
 
-        assertSuperheroes(response, Collections.singletonList(DomainModelsToDtoMapper.
+        assertSuperheroes(response, Collections.singletonList(Domain2DtoMapper.
                 mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
 
     }
@@ -74,34 +68,34 @@ public class SuperheroesControllerTest {
         String response = preformMockMvc(mockMvc, get(urlWithQueryParams), MediaType.APPLICATION_JSON, status().isOk());
 
         assertSuperheroes(response, Collections.singletonList(
-                DomainModelsToDtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
+                Domain2DtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
     }
 
     @Test
     void should_GetAllSuperheroes_WithOutEncryptedIdentities_WithGivenSuperpowers() throws Exception {
         given(superheroService.getSuperHeroes(testData.FIRST_TEST_SUPERHERO.getSuperpowers(), false)).
                 willReturn(Collections.singletonList(testData.FIRST_TEST_SUPERHERO));
-        String urlWithQueryParams = getUrlWithQueryParams(SUPERHEROES_CONTROLLER_PATH,SUPERPOWER_QUERY_PARAM,
-                getSuperpowersStringList(testData.FIRST_TEST_SUPERHERO.getSuperpowers()),ENCRYPTION_QUERY_PARAM,
+        String urlWithQueryParams = getUrlWithQueryParams(SUPERHEROES_CONTROLLER_PATH, SUPERPOWER_QUERY_PARAM,
+                getSuperpowersStringList(testData.FIRST_TEST_SUPERHERO.getSuperpowers()), ENCRYPTION_QUERY_PARAM,
                 Boolean.FALSE.toString());
 
         String response = preformMockMvc(mockMvc, get(urlWithQueryParams), MediaType.APPLICATION_JSON, status().isOk());
 
         assertSuperheroes(response, Collections.singletonList(
-                DomainModelsToDtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
+                Domain2DtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
     }
 
     @Test
     void should_GetAllSuperheroes_WithEncryptedIdentities_WithGivenSuperpowers() throws Exception {
         given(superheroService.getSuperHeroes(testData.FIRST_TEST_SUPERHERO.getSuperpowers(), true)).
                 willReturn(Collections.singletonList(testData.FIRST_TEST_SUPERHERO));
-        String urlWithQueryParams = getUrlWithQueryParams(SUPERHEROES_CONTROLLER_PATH,SUPERPOWER_QUERY_PARAM,
-                getSuperpowersStringList(testData.FIRST_TEST_SUPERHERO.getSuperpowers()),ENCRYPTION_QUERY_PARAM,
+        String urlWithQueryParams = getUrlWithQueryParams(SUPERHEROES_CONTROLLER_PATH, SUPERPOWER_QUERY_PARAM,
+                getSuperpowersStringList(testData.FIRST_TEST_SUPERHERO.getSuperpowers()), ENCRYPTION_QUERY_PARAM,
                 Boolean.TRUE.toString());
 
         String response = preformMockMvc(mockMvc, get(urlWithQueryParams), MediaType.APPLICATION_JSON, status().isOk());
 
         assertSuperheroes(response, Collections.singletonList(
-                DomainModelsToDtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
+                Domain2DtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
     }
 }
