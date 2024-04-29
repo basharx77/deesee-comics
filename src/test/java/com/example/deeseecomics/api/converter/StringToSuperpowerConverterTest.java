@@ -1,5 +1,7 @@
-package com.example.deeseecomics.domain.converter;
+package com.example.deeseecomics.api.converter;
 
+import com.example.deeseecomics.api.converter.StringToSuperpowerConverter;
+import com.example.deeseecomics.api.dto.SuperpowerDTO;
 import com.example.deeseecomics.domain.model.Superpower;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +14,7 @@ public class StringToSuperpowerConverterTest {
 
     @Test
     void shouldConvertStringToSuperpower() {
-        assertEquals(Superpower.FLIGHT, converter.convert(Superpower.FLIGHT.toString().toLowerCase()));
+        assertEquals(SuperpowerDTO.FLIGHT, converter.convert(SuperpowerDTO.FLIGHT.toString().toLowerCase()));
     }
 
     @Test
