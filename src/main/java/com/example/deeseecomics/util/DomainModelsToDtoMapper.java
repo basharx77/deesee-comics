@@ -33,4 +33,15 @@ public class DomainModelsToDtoMapper {
     public static SuperpowerDTO mapDomainSuperpowerToDto(Superpower superpower){
        return SuperpowerDTO.valueOf(superpower.toString().toUpperCase());
     }
+
+    public static EnumSet<Superpower> mapSuperpowersDtoToDomain(EnumSet<SuperpowerDTO> superpowers){
+        return superpowers.
+                stream().
+                map(DomainModelsToDtoMapper::mapSuperpowerDtoToDomain).
+                collect(Collectors.toCollection(() -> EnumSet.noneOf(Superpower.class)));
+    }
+
+    public static Superpower mapSuperpowerDtoToDomain(SuperpowerDTO superpower){
+        return Superpower.valueOf(superpower.toString().toUpperCase());
+    }
 }
