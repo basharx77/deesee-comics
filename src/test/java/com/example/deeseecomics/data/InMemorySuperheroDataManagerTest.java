@@ -2,7 +2,7 @@ package com.example.deeseecomics.data;
 
 import com.example.deeseecomics.TestData;
 import com.example.deeseecomics.data.loader.SuperheroDataLoader;
-import com.example.deeseecomics.domain.model.Superhero;
+import com.example.deeseecomics.model.Superhero;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;

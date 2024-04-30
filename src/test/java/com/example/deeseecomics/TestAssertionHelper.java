@@ -2,7 +2,7 @@ package com.example.deeseecomics;
 
 import com.example.deeseecomics.api.dto.SuperheroDTO;
 import com.example.deeseecomics.api.dto.SuperpowerDTO;
-import com.example.deeseecomics.domain.model.Identity;
+import com.example.deeseecomics.model.Identity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

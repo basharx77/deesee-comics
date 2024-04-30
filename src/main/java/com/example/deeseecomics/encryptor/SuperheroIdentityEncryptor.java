@@ -1,8 +1,8 @@
 package com.example.deeseecomics.encryptor;
 
-import com.example.deeseecomics.domain.model.Identity;
-import com.example.deeseecomics.domain.model.Superhero;
 import com.example.deeseecomics.encryptor.string.StringEncryptor;
+import com.example.deeseecomics.model.Identity;
+import com.example.deeseecomics.model.Superhero;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

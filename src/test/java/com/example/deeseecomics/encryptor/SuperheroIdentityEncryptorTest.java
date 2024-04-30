@@ -1,8 +1,8 @@
 package com.example.deeseecomics.encryptor;
 
 import com.example.deeseecomics.TestData;
-import com.example.deeseecomics.domain.model.Identity;
-import com.example.deeseecomics.domain.model.Superhero;
+import com.example.deeseecomics.model.Identity;
+import com.example.deeseecomics.model.Superhero;
 import com.example.deeseecomics.encryptor.string.StringEncryptor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

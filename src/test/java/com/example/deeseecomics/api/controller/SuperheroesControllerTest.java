@@ -1,9 +1,10 @@
-package com.example.deeseecomics.controller;
+package com.example.deeseecomics.api.controller;
 
 import com.example.deeseecomics.TestData;
-import com.example.deeseecomics.domain.model.Superpower;
+import com.example.deeseecomics.api.controller.SuperheroesController;
+import com.example.deeseecomics.model.Superpower;
 import com.example.deeseecomics.service.SuperheroService;
-import com.example.deeseecomics.util.Domain2DtoMapper;
+import com.example.deeseecomics.util.Model2DtoMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -53,8 +54,8 @@ public class SuperheroesControllerTest {
         String response = preformMockMvc(mockMvc, get(SUPERHEROES_CONTROLLER_PATH), MediaType.APPLICATION_JSON,
                 status().isOk());
 
-        assertSuperheroes(response, Collections.singletonList(Domain2DtoMapper.
-                mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
+        assertSuperheroes(response, Collections.singletonList(Model2DtoMapper.
+                mapModelSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
 
     }
 
@@ -68,7 +69,7 @@ public class SuperheroesControllerTest {
         String response = preformMockMvc(mockMvc, get(urlWithQueryParams), MediaType.APPLICATION_JSON, status().isOk());
 
         assertSuperheroes(response, Collections.singletonList(
-                Domain2DtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
+                Model2DtoMapper.mapModelSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
     }
 
     @Test
@@ -82,7 +83,7 @@ public class SuperheroesControllerTest {
         String response = preformMockMvc(mockMvc, get(urlWithQueryParams), MediaType.APPLICATION_JSON, status().isOk());
 
         assertSuperheroes(response, Collections.singletonList(
-                Domain2DtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
+                Model2DtoMapper.mapModelSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
     }
 
     @Test
@@ -96,6 +97,6 @@ public class SuperheroesControllerTest {
         String response = preformMockMvc(mockMvc, get(urlWithQueryParams), MediaType.APPLICATION_JSON, status().isOk());
 
         assertSuperheroes(response, Collections.singletonList(
-                Domain2DtoMapper.mapDomainSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
+                Model2DtoMapper.mapModelSuperheroToDto(testData.FIRST_TEST_SUPERHERO)), objectMapper);
     }
 }

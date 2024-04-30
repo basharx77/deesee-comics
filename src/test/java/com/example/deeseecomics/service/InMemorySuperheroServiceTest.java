@@ -2,8 +2,8 @@ package com.example.deeseecomics.service;
 
 import com.example.deeseecomics.TestData;
 import com.example.deeseecomics.data.InMemorySuperheroDataManager;
-import com.example.deeseecomics.domain.model.Superhero;
-import com.example.deeseecomics.domain.model.Superpower;
+import com.example.deeseecomics.model.Superhero;
+import com.example.deeseecomics.model.Superpower;
 import com.example.deeseecomics.encryptor.SuperheroIdentityEncryptor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,4 +1,4 @@
-package com.example.deeseecomics.domain.model;
+package com.example.deeseecomics.model;
 
 
 public enum Superpower {

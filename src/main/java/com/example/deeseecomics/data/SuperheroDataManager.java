@@ -1,7 +1,7 @@
 package com.example.deeseecomics.data;
 
-import com.example.deeseecomics.domain.model.Superhero;
-import com.example.deeseecomics.domain.model.Superpower;
+import com.example.deeseecomics.model.Superhero;
+import com.example.deeseecomics.model.Superpower;
 
 import java.util.EnumSet;
 import java.util.List;

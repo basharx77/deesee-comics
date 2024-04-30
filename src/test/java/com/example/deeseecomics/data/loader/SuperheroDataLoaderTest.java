@@ -1,6 +1,6 @@
 package com.example.deeseecomics.data.loader;
 
-import com.example.deeseecomics.domain.model.Superhero;
+import com.example.deeseecomics.model.Superhero;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

@@ -1,8 +1,8 @@
 package com.example.deeseecomics.data;
 
 import com.example.deeseecomics.data.loader.SuperheroDataLoader;
-import com.example.deeseecomics.domain.model.Superhero;
-import com.example.deeseecomics.domain.model.Superpower;
+import com.example.deeseecomics.model.Superhero;
+import com.example.deeseecomics.model.Superpower;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 

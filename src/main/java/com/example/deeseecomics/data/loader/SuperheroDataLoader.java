@@ -1,7 +1,7 @@
 package com.example.deeseecomics.data.loader;
 
-import com.example.deeseecomics.domain.model.Superhero;
-import com.example.deeseecomics.domain.model.Superpower;
+import com.example.deeseecomics.model.Superhero;
+import com.example.deeseecomics.model.Superpower;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;

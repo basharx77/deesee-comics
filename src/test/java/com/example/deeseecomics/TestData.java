@@ -1,8 +1,8 @@
 package com.example.deeseecomics;
 
-import com.example.deeseecomics.domain.model.Identity;
-import com.example.deeseecomics.domain.model.Superhero;
-import com.example.deeseecomics.domain.model.Superpower;
+import com.example.deeseecomics.model.Identity;
+import com.example.deeseecomics.model.Superhero;
+import com.example.deeseecomics.model.Superpower;
 
 import java.time.LocalDate;
 import java.util.EnumSet;
