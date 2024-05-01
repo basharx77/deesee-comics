@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test;
 
 import java.util.EnumSet;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Dto2DomainMapperTest {
     @Test
-    public void shouldMapModelSuperpowerToDto() {
-        assertEquals(Dto2ModelMapper.mapSuperpowerDtoToModel(SuperpowerDTO.FLIGHT.FLIGHT),
+    public void shouldMapSuperpowerModelToDto() {
+        assertEquals(Dto2ModelMapper.mapSuperpowerDtoToModel(SuperpowerDTO.FLIGHT),
                 Superpower.FLIGHT);
     }
 
     @Test
-    public void shouldMapModelSuperpowersToDtos() {
-        var superpowers = Dto2ModelMapper.mapSuperpowersDtoToModel(EnumSet.allOf(SuperpowerDTO.class));
+    public void shouldMapSuperpowerModelsToDtos() {
+        var superpowers = Dto2ModelMapper.mapSuperpowerDtosToModels(EnumSet.allOf(SuperpowerDTO.class));
         assertEquals(superpowers, EnumSet.allOf(Superpower.class));
     }
 }

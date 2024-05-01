@@ -11,26 +11,26 @@ import java.util.stream.Collectors;
 
 public class Model2DtoMapper {
 
-    public static List<SuperheroDTO> mapModelSuperheroesToDtos(List<Superhero> superheroes) {
-        return superheroes.stream().map(Model2DtoMapper::mapModelSuperheroToDto).toList();
+    public static List<SuperheroDTO> mapSuperheroModelsToDtos(List<Superhero> superheroes) {
+        return superheroes.stream().map(Model2DtoMapper::mapSuperheroModelToDto).toList();
     }
 
-    public static SuperheroDTO mapModelSuperheroToDto(Superhero superhero) {
+    public static SuperheroDTO mapSuperheroModelToDto(Superhero superhero) {
 
         return new SuperheroDTO(superhero.getName(),
                 "$%s$%s".formatted(superhero.getIdentity().getFirstName(), superhero.getIdentity().getLastName()),
-                mapModelSuperpowersToDtos(superhero.getSuperpowers()),
+                mapSuperpowerModelsToDtos(superhero.getSuperpowers()),
                 superhero.getBirthday());
     }
 
-    public static EnumSet<SuperpowerDTO> mapModelSuperpowersToDtos(EnumSet<Superpower> superpowers) {
+    public static EnumSet<SuperpowerDTO> mapSuperpowerModelsToDtos(EnumSet<Superpower> superpowers) {
         return superpowers.
                 stream().
-                map(Model2DtoMapper::mapModelSuperpowerToDto).
+                map(Model2DtoMapper::mapSuperpowerModelToDto).
                 collect(Collectors.toCollection(() -> EnumSet.noneOf(SuperpowerDTO.class)));
     }
 
-    public static SuperpowerDTO mapModelSuperpowerToDto(Superpower superpower) {
+    public static SuperpowerDTO mapSuperpowerModelToDto(Superpower superpower) {
         return SuperpowerDTO.valueOf(superpower.toString().toUpperCase());
     }
 

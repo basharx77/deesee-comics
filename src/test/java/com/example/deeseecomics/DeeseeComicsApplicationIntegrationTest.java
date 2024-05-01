@@ -15,8 +15,8 @@ import java.util.List;
 import static com.example.deeseecomics.TestData.*;
 import static com.example.deeseecomics.WebTestUtils.concatSuperpowers;
 import static com.example.deeseecomics.WebTestUtils.getUrlWithQueryParams;
-import static com.example.deeseecomics.util.Model2DtoMapper.mapModelSuperheroToDto;
-import static com.example.deeseecomics.util.Model2DtoMapper.mapModelSuperheroesToDtos;
+import static com.example.deeseecomics.util.Model2DtoMapper.mapSuperheroModelToDto;
+import static com.example.deeseecomics.util.Model2DtoMapper.mapSuperheroModelsToDtos;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -36,7 +36,7 @@ class DeeseeComicsApplicationIntegrationTest {
         SuperheroDTO[] superheroDTOS = getSuperHeroes(null, null);
 
         assertEquals(5, superheroDTOS.length);
-        assertEquals(mapModelSuperheroesToDtos(superheroDataLoader.loadSuperheroes()), List.of(superheroDTOS));
+        assertEquals(mapSuperheroModelsToDtos(superheroDataLoader.loadSuperheroes()), List.of(superheroDTOS));
     }
 
 
@@ -45,7 +45,7 @@ class DeeseeComicsApplicationIntegrationTest {
         SuperheroDTO[] superheroDTOS = getSuperHeroes(true, null);
 
         assertEquals(5, superheroDTOS.length);
-        assertEquals(mapModelSuperheroesToDtos(superheroIdentityEncryptor.createNewSuperheroesWithEncryptedIdentities(
+        assertEquals(mapSuperheroModelsToDtos(superheroIdentityEncryptor.createNewSuperheroesWithEncryptedIdentities(
                 superheroDataLoader.loadSuperheroes())), List.of(superheroDTOS));
     }
 
@@ -55,7 +55,7 @@ class DeeseeComicsApplicationIntegrationTest {
                 concatSuperpowers(SuperpowerDTO.FLIGHT, SuperpowerDTO.HEALING, SuperpowerDTO.STRENGTH));
 
         assertEquals(1, superheroDTOS.length);
-        assertEquals(mapModelSuperheroToDto(superheroDataLoader.loadSuperheroes().get(3)), superheroDTOS[0]);
+        assertEquals(mapSuperheroModelToDto(superheroDataLoader.loadSuperheroes().get(3)), superheroDTOS[0]);
     }
 
 
@@ -67,7 +67,7 @@ class DeeseeComicsApplicationIntegrationTest {
         assertEquals(1, superheroDTOS.length);
         var expectedSuperhero = superheroIdentityEncryptor.createNewSuperheroesWithEncryptedIdentities(
                 List.of(superheroDataLoader.loadSuperheroes().get(3))).get(0);
-        assertEquals(mapModelSuperheroToDto((expectedSuperhero)), superheroDTOS[0]);
+        assertEquals(mapSuperheroModelToDto((expectedSuperhero)), superheroDTOS[0]);
     }
 
 

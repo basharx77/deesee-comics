@@ -16,20 +16,20 @@ class Model2DtoMapperTest {
     private final TestData testData = new TestData();
 
     @Test
-    public void shouldMapModelSuperheroToDto() {
-        var superhero = Model2DtoMapper.mapModelSuperheroToDto(testData.FIRST_TEST_SUPERHERO);
+    public void shouldMapSuperheroModelToDto() {
+        var superhero = Model2DtoMapper.mapSuperheroModelToDto(testData.FIRST_TEST_SUPERHERO);
 
         assertSuperheroDto(superhero,
                 testData.FIRST_TEST_SUPERHERO_NAME,
                 testData.FIRST_TEST_SUPERHERO_BIRTHDAY,
-                Model2DtoMapper.mapModelSuperpowersToDtos(testData.FIRST_TEST_SUPERHERO_SUPERPOWERS),
+                Model2DtoMapper.mapSuperpowerModelsToDtos(testData.FIRST_TEST_SUPERHERO_SUPERPOWERS),
                 "$%s$%s".formatted(testData.FIRST_TEST_SUPERHERO_FIRST_NAME,
                         testData.FIRST_TEST_SUPERHERO_SECOND_NAME));
     }
 
     @Test
-    public void shouldMapModelSuperheroesToDtos() {
-        var superheroes = Model2DtoMapper.mapModelSuperheroesToDtos(List.of(
+    public void shouldMapSuperheroModelsToDtos() {
+        var superheroes = Model2DtoMapper.mapSuperheroModelsToDtos(List.of(
                 testData.FIRST_TEST_SUPERHERO,
                 testData.SECOND_TEST_SUPERHERO));
 
@@ -37,27 +37,27 @@ class Model2DtoMapperTest {
         assertSuperheroDto(superheroes.get(0),
                 testData.FIRST_TEST_SUPERHERO_NAME,
                 testData.FIRST_TEST_SUPERHERO_BIRTHDAY,
-                Model2DtoMapper.mapModelSuperpowersToDtos(testData.FIRST_TEST_SUPERHERO_SUPERPOWERS),
+                Model2DtoMapper.mapSuperpowerModelsToDtos(testData.FIRST_TEST_SUPERHERO_SUPERPOWERS),
                 "$%s$%s".formatted(testData.FIRST_TEST_SUPERHERO_FIRST_NAME,
                         testData.FIRST_TEST_SUPERHERO_SECOND_NAME));
 
         assertSuperheroDto(superheroes.get(1),
                 testData.SECOND_TEST_SUPERHERO_NAME,
                 testData.SECOND_TEST_SUPERHERO_BIRTHDAY,
-                Model2DtoMapper.mapModelSuperpowersToDtos(testData.SECOND_TEST_SUPERHERO_SUPERPOWERS),
+                Model2DtoMapper.mapSuperpowerModelsToDtos(testData.SECOND_TEST_SUPERHERO_SUPERPOWERS),
                 "$%s$%s".formatted(testData.SECOND_TEST_SUPERHERO_FIRST_NAME,
                         testData.SECOND_TEST_SUPERHERO_SECOND_NAME));
     }
 
     @Test
-    public void shouldMapModelSuperpowerToDto() {
-        assertEquals(Model2DtoMapper.mapModelSuperpowerToDto(Superpower.FLIGHT),
+    public void shouldMapSuperpowerModelToDto() {
+        assertEquals(Model2DtoMapper.mapSuperpowerModelToDto(Superpower.FLIGHT),
                 SuperpowerDTO.FLIGHT);
     }
 
     @Test
-    public void shouldMapModelSuperpowersToDtos() {
-        var superpowerDtos = Model2DtoMapper.mapModelSuperpowersToDtos(EnumSet.allOf(Superpower.class));
+    public void shouldMapSuperpowerModelsToDtos() {
+        var superpowerDtos = Model2DtoMapper.mapSuperpowerModelsToDtos(EnumSet.allOf(Superpower.class));
         assertEquals(superpowerDtos, EnumSet.allOf(SuperpowerDTO.class));
     }
 

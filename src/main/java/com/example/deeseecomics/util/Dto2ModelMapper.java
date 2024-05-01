@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Dto2ModelMapper {
 
-    public static EnumSet<Superpower> mapSuperpowersDtoToModel(EnumSet<SuperpowerDTO> superpowers) {
+    public static EnumSet<Superpower> mapSuperpowerDtosToModels(EnumSet<SuperpowerDTO> superpowers) {
         return superpowers.
                 stream().
                 map(Dto2ModelMapper::mapSuperpowerDtoToModel).

@@ -35,12 +35,12 @@ public class SuperheroIdentityEncryptor {
     }
 
     private Superhero createShallowCopyOfSuperheroWithEncryptedIdentity(Superhero superhero, Identity identity) {
-        Superhero superheroWihtEncryptedIndetities = new Superhero();
-        superheroWihtEncryptedIndetities.setName(superhero.getName());
-        superheroWihtEncryptedIndetities.setBirthday(superhero.getBirthday());
-        superheroWihtEncryptedIndetities.setSuperpowers(superhero.getSuperpowers());
-        superheroWihtEncryptedIndetities.setIdentity(identity);
+        Superhero superheroWithEncryptedIdentities = new Superhero();
+        superheroWithEncryptedIdentities.setName(superhero.getName());
+        superheroWithEncryptedIdentities.setBirthday(superhero.getBirthday());
+        superheroWithEncryptedIdentities.setSuperpowers(superhero.getSuperpowers());
+        superheroWithEncryptedIdentities.setIdentity(identity);
 
-        return superheroWihtEncryptedIndetities;
+        return superheroWithEncryptedIdentities;
     }
 }
