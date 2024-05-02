@@ -20,7 +20,10 @@ class DeeseeStringEncryptor implements StringEncryptor {
     }
 
     private String encryptChar(int value) {
-        int newValue = Character.isWhitespace(value) ? value : value + key;
+        int sum = value + key;
+        int overflowCounts = Character.isUpperCase(value) ? (sum - 'A') / 26 : (sum - 'a') / 26;
+        int newValue = Character.isWhitespace(value) ? value : overflowCounts == 0 ? sum : sum - (overflowCounts * 26);
+
         return String.valueOf((char) newValue);
     }
 
