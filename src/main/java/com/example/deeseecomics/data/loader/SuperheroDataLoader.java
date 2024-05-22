@@ -13,6 +13,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @Component
@@ -44,9 +45,8 @@ public class SuperheroDataLoader {
     }
 
     public List<Superhero> loadSuperheroes() {
-        try {
-            return getObjectMapper().readValue(resource.getInputStream(), new TypeReference<>() {
-            });
+        try (InputStream inputStream = resource.getInputStream()) {
+            return getObjectMapper().readValue(inputStream, new TypeReference<>() {});
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
